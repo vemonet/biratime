@@ -46,10 +46,12 @@ cd gnome-terminal-colors-solarized
 
 ## What it looks like
 
-When changes not commited on Git:
+In Gnome Terminal with Solarized colors.
+
+* When there are uncommited changes on the current Git repository:
 
 ![screenshot commited](resources/screenshot_uncommited.png)
 
-When changes commited, with indicator that there are changes that needs to be pushed to GitHub/GitLab
+* When no changes to commit, with indicator that there are changes that needs to be pushed to GitHub/GitLab:
 
 ![screenshot commited](resources/screenshot_commited.png)

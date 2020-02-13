@@ -1,9 +1,8 @@
 #!/bin/bash
 
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-cp zsh/.zshrc ~/
+cp zsh/.zshrc ~/.zshrc
 cp zsh/vemonet_bira.zsh-theme ~/.oh-my-zsh/custom/themes/vemonet_bira.zsh-theme
-cp zsh/vemonet_bira_red.zsh-theme ~/.oh-my-zsh/custom/themes/vemonet_bira_red.zsh-theme
 
 # Default ZSH yarn plugin not working, using this one:
 git clone https://github.com/buonomo/yarn-completion ~/.oh-my-zsh/custom/plugins/yarn-completion

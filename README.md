@@ -1,13 +1,13 @@
 A simple [oh-my-zsh](https://ohmyz.sh/) theme based on the Bira theme. The username has been removed as I usually don't need it to be display all the time and the time has been added (can be useful to see the time a command took to run)
 
-What is installed:
+What is [installed](https://github.com/vemonet/zsh-theme-vemonet/blob/master/install.sh):
 
 * [oh-my-zsh](https://ohmyz.sh/)
 * A custom [oh-my-zsh](https://ohmyz.sh/) theme based on Bira (replacing username by time)
 * Completion for the `ssh` command based on your [~/.ssh/config](https://github.com/vemonet/zsh-theme-vemonet/blob/master/ssh_config) file. 
   * Take a look at the [ssh_config](https://github.com/vemonet/zsh-theme-vemonet/blob/master/ssh_config) file to see how to define your SSH connections using different identity files and usernames.
-* A working `yarn` completion for ZSH (default one doesn't work properly on Ubuntu and MacOS)
-* Following plugins are activated in [.zshrc](https://github.com/vemonet/zsh-theme-vemonet/blob/master/zsh/.zshrc): 
+* A working `yarn` completion for ZSH (the default one doesn't work properly on Ubuntu and MacOS)
+* Following autocompletion plugins are activated in [.zshrc](https://github.com/vemonet/zsh-theme-vemonet/blob/master/zsh/.zshrc#L22): 
   * docker oc kubectl mvn ansible aws yarn-completion
   * Those interesting plugins seems to not work: pip yarn docker-compose npm npx 
 

@@ -44,3 +44,12 @@ cd gnome-terminal-colors-solarized
 ./install.sh
 ```
 
+## What it looks like
+
+When changes not commited on Git:
+
+![screenshot commited](resources/screenshot_uncommited.png)
+
+When changes commited, with indicator that there are changes that needs to be pushed to GitHub/GitLab
+
+![screenshot commited](resources/screenshot_commited.png)

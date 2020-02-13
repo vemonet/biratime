@@ -1,6 +1,8 @@
 IdentityFile ~/.ssh/id_rsa1
 IdentityFile ~/.ssh/id_rsa2
 
+# Example configuration, to be replaced with yours
+
 host server1
   hostname server1.ids.unimaas.nl
   user vemonet

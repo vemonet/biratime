@@ -55,3 +55,24 @@ In Gnome Terminal with Solarized colors.
 * When no changes to commit, with indicator that there are changes that needs to be pushed to GitHub/GitLab:
 
 ![screenshot commited](resources/screenshot_commited.png)
+
+## Change the color
+
+You can change the color the time (instead of blue) before installing the theme
+
+```bash
+nano zsh/vemonet_bira.zsh-theme
+
+# Change "blue" in the following line
+local current_dir='%{$terminfo[bold]$fg[blue]%} %~%{$reset_color%}'
+```
+
+If you already installed the theme, you can put the new one instead:
+
+```bash
+cp zsh/vemonet_bira.zsh-theme ~/.oh-my-zsh/custom/themes/vemonet_bira.zsh-theme
+```
+
+
+
+ 

@@ -6,10 +6,19 @@ What is [installed](https://github.com/vemonet/zsh-theme-vemonet/blob/master/ins
 * A custom [oh-my-zsh](https://ohmyz.sh/) theme based on Bira (replacing username by time)
 * Completion for the `ssh` command based on your [~/.ssh/config](https://github.com/vemonet/zsh-theme-vemonet/blob/master/ssh_config) file. 
   * Take a look at the [ssh_config](https://github.com/vemonet/zsh-theme-vemonet/blob/master/ssh_config) file to see how to define your SSH connections using different identity files and usernames.
-* A working `yarn` completion for ZSH (the default one doesn't work properly on Ubuntu and MacOS)
+* A better `yarn` completion for ZSH (the default one doesn't work properly on Ubuntu and MacOS)
 * Following autocompletion plugins are activated in [.zshrc](https://github.com/vemonet/zsh-theme-vemonet/blob/master/zsh/.zshrc#L22): 
-  * docker oc kubectl mvn ansible aws yarn-completion
-  * Those interesting plugins seems to not work: pip yarn docker-compose npm npx 
+  * `docker oc kubectl mvn ansible aws yarn-completion`
+  * Those interesting plugins seems to not work: `pip yarn docker-compose npm npx`
+
+## Clone
+
+Clone the repository and go inside.
+
+```bash
+git clone https://github.com/vemonet/zsh-theme-biradate.git
+cd zsh-theme-biradate
+```
 
 ## Install it
 

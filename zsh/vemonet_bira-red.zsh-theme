@@ -36,7 +36,7 @@ local git_branch='$(git_prompt_info)$(git_remote_status)%{$reset_color%}'
 #╰─%B$%b "
 
 # Prompt display Time, current dir and git infos
-PROMPT="╭─$fg[red]%T${current_dir} ${git_branch}
+PROMPT="╭─$fg[red]%T ${user_host}${current_dir} ${git_branch}
 ╰─%B$%b "
 
 RPS1="${return_code}"

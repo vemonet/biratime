@@ -19,7 +19,7 @@ ZSH_THEME="vemonet_bira"
 # Add wisely, as too many plugins slow down shell startup.
 # Removed git because it was useless aliases (and conflict with gr)
 
-plugins=(docker oc kubectl mvn ansible aws yarn-completion)
+plugins=(docker oc kubectl mvn ansible yarn-completion)
 # TODO: argo
 # ansible nmap postgres aws heroku
 # yarn npm npx react-native 

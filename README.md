@@ -22,15 +22,18 @@ cd zsh-theme-biradate
 
 ## Install it
 
-First install ZSH:
+First install ZSH depending on your operating system:
 
 ```bash
-# On Linux
-sudo apt-get update
-sudo apt install zsh
-
 # On MacOS
 brew install zsh
+
+# On Debian/Ubuntu
+sudo apt-get update
+sudo apt-get install zsh -y
+
+# On CentOS
+sudo yum install zsh -y
 ```
 
 Then make sure the [install.sh](https://github.com/vemonet/zsh-theme-vemonet/blob/master/install.sh) script does not install things you don't want, and run it:
@@ -38,6 +41,8 @@ Then make sure the [install.sh](https://github.com/vemonet/zsh-theme-vemonet/blo
 ```bash
 ./install.sh
 ```
+
+A step will prompt the opening of a ZSH shell, just type `exit` to continue. Some steps will ask for password and confirmation. 
 
 > You might want to change the .ssh/config file (set with examples) before running the install. 
 

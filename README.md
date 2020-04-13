@@ -67,19 +67,19 @@ In Gnome Terminal with Solarized colors.
 
 ## Change the color
 
-You can change the color the time (instead of blue) before installing the theme
+If you already installed the theme, you can put the `red` one instead:
+
+```bash
+cp zsh/vemonet_bira-red.zsh-theme ~/.oh-my-zsh/custom/themes/vemonet_bira.zsh-theme
+```
+
+You can change the color the time (instead of blue or red) before installing the theme
 
 ```bash
 nano zsh/vemonet_bira.zsh-theme
 
 # Change "blue" in the following line
 local current_dir='%{$terminfo[bold]$fg[blue]%} %~%{$reset_color%}'
-```
-
-If you already installed the theme, you can put the new one instead:
-
-```bash
-cp zsh/vemonet_bira.zsh-theme ~/.oh-my-zsh/custom/themes/vemonet_bira.zsh-theme
 ```
 
 

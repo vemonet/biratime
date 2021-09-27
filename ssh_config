@@ -5,12 +5,12 @@ IdentityFile ~/.ssh/id_rsa2
 
 host server1
   hostname server1.ids.unimaas.nl
-  user vemonet
+  user youruser
   identityfile ~/.ssh/id_rsa1
 
 host server2
   hostname server2.ids.unimaas.nl
-  user vemonet
+  user youruser
   identityfile ~/.ssh/id_rsa2
 
 # nmap -sn 192.168.1.0/24 to get devices on network

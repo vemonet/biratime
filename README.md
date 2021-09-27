@@ -36,7 +36,7 @@ sudo apt-get install zsh -y
 sudo yum install zsh -y
 ```
 
-Then make sure the [install.sh](https://github.com/vemonet/zsh-theme-vemonet/blob/master/install.sh) script does not install things you don't want, and run it:
+Use the [`install.sh`](https://github.com/vemonet/zsh-theme-vemonet/blob/master/install.sh) script to easily install on Linux (tested on debian/ubuntu), check it before running it to see what it does, then run it:
 
 ```bash
 ./install.sh
@@ -44,9 +44,9 @@ Then make sure the [install.sh](https://github.com/vemonet/zsh-theme-vemonet/blo
 
 A step will prompt the opening of a ZSH shell, just type `exit` to continue. Some steps will ask for password and confirmation. 
 
-> You might want to change the .ssh/config file (set with examples) before running the install. 
+> You might want to change the `ssh/config` file (set with examples) before running the install. 
 
-> ⚠️ An alias to use automatically `pip3` when `pip` is used is created at the end of [.zshrc](https://github.com/vemonet/zsh-theme-vemonet/blob/master/zsh/.zshrc). Remove it if you don't want it (N.B: Python 2.7 is not supported anymore).
+> ⚠️ An alias to use automatically `pip3` when `pip` is used is created at the end of [`.zshrc`](https://github.com/vemonet/zsh-theme-vemonet/blob/master/zsh/.zshrc). Remove it if you don't want it (N.B: Python 2.7 is not supported anymore).
 
 ## Solarized Gnome terminal
 
@@ -69,24 +69,3 @@ In Gnome Terminal with Solarized colors.
 * When no changes to commit, with indicator that there are changes that needs to be pushed to GitHub/GitLab:
 
 ![screenshot commited](resources/screenshot_commited.png)
-
-## Change the color
-
-If you already installed the theme, you can put the `red` one instead:
-
-```bash
-cp zsh/vemonet_bira-red.zsh-theme ~/.oh-my-zsh/custom/themes/vemonet_bira.zsh-theme
-```
-
-You can change the color the time (instead of blue or red) before installing the theme
-
-```bash
-nano zsh/vemonet_bira.zsh-theme
-
-# Change "blue" in the following line
-local current_dir='%{$terminfo[bold]$fg[blue]%} %~%{$reset_color%}'
-```
-
-
-
- 

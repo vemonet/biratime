@@ -6,16 +6,18 @@ local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 # If user 1000 use blue and dont display user@hostname infos
 # If root or other users use red
 if [[ $UID -eq 1000 ]]; then
+    # Usually your personal laptop where you are the main user
     local user_color='blue'
     local user_host='%{$reset_color%}'
     local user_symbol='$'
 elif [[ $UID -eq 0 ]]; then
     local user_color='red'
-    local user_host='%{$reset_color%}'
+    local user_host=' %{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
     local user_symbol='#'
 else
+    # Usually for servers where you are not the main user
     local user_color='red'
-    local user_host=' %{$terminfo[bold]$fg[red]%}%n@%m %{$reset_color%}'
+    local user_host=' %{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
     local user_symbol='$'
 fi
 

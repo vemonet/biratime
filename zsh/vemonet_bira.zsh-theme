@@ -3,15 +3,19 @@
 # Display the latest error status in the right prompt:
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-# If root then use red, otherwise blue
-if [[ $UID -eq 0 ]]; then
-    local user_color='red'
-    local user_host=' %{$terminfo[bold]$fg[red]%}%n@%m %{$reset_color%}'
-    local user_symbol='#'
-else
-    # local user_host='%{$terminfo[bold]$fg[green]%}%n@%m %{$reset_color%}'
+# If user 1000 use blue and dont display user@hostname infos
+# If root or other users use red
+if [[ $UID -eq 1000 ]]; then
     local user_color='blue'
     local user_host='%{$reset_color%}'
+    local user_symbol='$'
+elif [[ $UID -eq 0 ]]; then
+    local user_color='red'
+    local user_host='%{$reset_color%}'
+    local user_symbol='#'
+else
+    local user_color='red'
+    local user_host=' %{$terminfo[bold]$fg[red]%}%n@%m %{$reset_color%}'
     local user_symbol='$'
 fi
 

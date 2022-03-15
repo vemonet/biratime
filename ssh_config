@@ -4,16 +4,16 @@ IdentityFile ~/.ssh/id_rsa2
 # Example configuration, to be replaced with yours
 
 host server1
-  hostname server1.ids.unimaas.nl
+  hostname server1.host.com
   user youruser
   identityfile ~/.ssh/id_rsa1
 
 host server2
-  hostname server2.ids.unimaas.nl
+  hostname server2.host.com
   user youruser
   identityfile ~/.ssh/id_rsa2
 
-# nmap -sn 192.168.1.0/24 to get devices on network
+# nmap -sn 192.168.1.0/24 to see the devices on the network
 host raspberrypi
   hostname 192.168.1.65
   user pi

@@ -16,14 +16,11 @@ ZSH_THEME="vemonet_bira"
 # Add wisely, as too many plugins slow down shell startup.
 # Removed git because it was useless aliases (and conflict with gr)
 
-plugins=(docker oc kubectl mvn ansible yarn-completion)
-# TODO: fix argo
-# ansible nmap postgres aws heroku
+plugins=(docker docker-compose oc kubectl yarn)
+# Also available: mvn ansible yarn-completion ansible nmap postgres aws heroku
 # yarn npm npx react-native 
 # pip python virtualenv autopep8
-# mvn 
-# ruby gem rails rbenv bundler rvm 
-# Seems to not work: pip yarn docker-compose npm npx
+
 
 source $ZSH/oh-my-zsh.sh
 

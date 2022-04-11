@@ -1,56 +1,59 @@
-A simple [oh-my-zsh](https://ohmyz.sh/) theme based on the Bira theme. The username has been removed as I usually don't need it to be display all the time and the time has been added (can be useful to see the time a command took to run)
+# ⌚️ Biratime ZSH theme
 
-What is [installed](https://github.com/vemonet/zsh-theme-vemonet/blob/master/install.sh):
+A simple [oh-my-zsh](https://ohmyz.sh) theme based on the [Bira theme](https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/bira.zsh-theme). The username has been replaced by the time in 24h format, as we usually don't need to be reminded on which machine and user we are logged in at every key stroke. But it can be helpful to keep track of time within the terminal.
 
-* [oh-my-zsh](https://ohmyz.sh/)
-* A custom [oh-my-zsh](https://ohmyz.sh/) theme based on Bira (replacing username by time)
-* Completion for the `ssh` command based on your [~/.ssh/config](https://github.com/vemonet/zsh-theme-vemonet/blob/master/ssh_config) file. 
-  * Take a look at the [ssh_config](https://github.com/vemonet/zsh-theme-vemonet/blob/master/ssh_config) file to see how to define your SSH connections using different identity files and usernames.
-* A better `yarn` completion for ZSH (the default one doesn't work properly on Ubuntu and MacOS)
-* Following autocompletion plugins are activated in [.zshrc](https://github.com/vemonet/zsh-theme-vemonet/blob/master/zsh/.zshrc#L22): 
-  * `docker oc kubectl mvn ansible aws yarn-completion`
-  * Those interesting plugins seems to not work: `pip yarn docker-compose npm npx`
+The color of the time changes from blue to red if you are logged with a user that is not UID `1000`, as the user with UID `1000` is usually the 1st user to be created on the machine, and used as main user. This helps to quickly know when you are logged in with a special user, such as root.
 
-## Clone
+## 🖼️ What it looks like
 
-Clone the repository and go inside.
+Here is what the theme looks like in a Gnome Terminal with the [solarized colors scheme](https://ethanschoonover.com/solarized) enabled.
 
-```bash
-git clone https://github.com/vemonet/zsh-theme-biradate.git
-cd zsh-theme-biradate
-```
+If there are uncommited changes in the current git repository:
 
-## Install it
+![screenshot commited](resources/screenshot_uncommited.png)
 
-First install ZSH depending on your operating system:
+And if there are no changes to commit, but some local commits needs to be pushed to the remote git repository:
+
+![screenshot commited](resources/screenshot_commited.png)
+
+## 📥️ Installation
+
+<details><summary>You will need to have ZSH and Oh My ZSH! installed.</summary>
+
+Install the ZSH shell:
 
 ```bash
+# On Debian-based Linux
+sudo apt install -y zsh
+# On RedHat Linux
+sudo dnf install -y zsh
 # On MacOS
 brew install zsh
-
-# On Debian/Ubuntu
-sudo apt-get update
-sudo apt-get install zsh -y
-
-# On CentOS
-sudo yum install zsh -y
 ```
 
-Use the [`install.sh`](https://github.com/vemonet/zsh-theme-vemonet/blob/master/install.sh) script to easily install on Linux (tested on debian/ubuntu), check it before running it to see what it does, then run it:
+Install [Oh My ZSH!](https://ohmyz.sh)
 
 ```bash
-./install.sh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-A step will prompt the opening of a ZSH shell, just type `exit` to continue. Some steps will ask for password and confirmation. 
+</details>
 
-> You might want to change the `ssh/config` file (set with examples) before running the install. 
+1. **Download the theme**:
 
-> ⚠️ An alias to use automatically `pip3` when `pip` is used is created at the end of [`.zshrc`](https://github.com/vemonet/zsh-theme-vemonet/blob/master/zsh/.zshrc). Remove it if you don't want it (N.B: Python 2.7 is not supported anymore).
+```bash
+curl -fsSL -o ~/.oh-my-zsh/custom/themes/biratime.zsh-theme https://raw.github.com/vemonet/biratime/main/biratime.zsh-theme
+```
 
-## Solarized Gnome terminal
+2. **Enable the theme** by setting `ZSH_THEME="biratime"` in your `~/.zshrc` config file:
 
-Install [Solarized color](https://github.com/aruhier/gnome-terminal-colors-solarized) for the Gnome terminal:
+```bash
+sed -i 's/^ZSH_THEME=".*"$/ZSH_THEME="biratime"/g' ~/.zshrc
+```
+
+3. **Enable the [solarized colors scheme](https://ethanschoonover.com/solarized)** for your terminal
+
+If you use Linux with the Gnome terminal:
 
 ```bash
 git clone https://github.com/aruhier/gnome-terminal-colors-solarized.git
@@ -58,14 +61,14 @@ cd gnome-terminal-colors-solarized
 ./install.sh
 ```
 
-## What it looks like
+If you use the Microsoft Terminal, you can enable solarized colors for the WSL terminal in the Settings window.
 
-In Gnome Terminal with Solarized colors.
+4. Use the **ZSH shell by default**:
 
-* When there are uncommited changes on the current Git repository:
+```bash
+sudo chsh --shell=/usr/bin/zsh $USER
+```
 
-![screenshot commited](resources/screenshot_uncommited.png)
+## 🕊️ Contribute
 
-* When no changes to commit, with indicator that there are changes that needs to be pushed to GitHub/GitLab:
-
-![screenshot commited](resources/screenshot_commited.png)
+Feel free to create issues, or proposes changes through pull requests.

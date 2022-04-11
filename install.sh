@@ -1,15 +1,19 @@
-#!/bin/bash
+#!/bin/sh
 
-# Install oh-my-zsh, zshrc config and theme
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-cp zsh/.zshrc ~/.zshrc
-cp zsh/vemonet_bira.zsh-theme ~/.oh-my-zsh/custom/themes/vemonet_bira.zsh-theme
+## Uses this script:
+# sh -c "$(curl -fsSL https://raw.github.com/vemonet/biratime/main/install.sh)"
 
-# Add SSH completion
-sudo cp zsh/_ssh_completion /usr/share/zsh/functions/Completion/Unix/_ssh
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Add SSH config
-cp ssh_config ~/.ssh/config
+# Install custom theme
+curl -fsSL -o ~/.oh-my-zsh/custom/themes/biratime.zsh-theme https://raw.github.com/vemonet/biratime/main/biratime.zsh-theme
+sed -i 's/^ZSH_THEME=".*"$/ZSH_THEME="biratime"/g' ~/.zshrc
 
-# Use ZSH shell by default
+# Install Solarized colors
+git clone https://github.com/aruhier/gnome-terminal-colors-solarized.git
+cd gnome-terminal-colors-solarized
+./install.sh
+
+# Enable the ZSH shell by default
 sudo chsh --shell=/usr/bin/zsh $USER

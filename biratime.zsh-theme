@@ -11,6 +11,7 @@ if [[ $UID -eq 1000 ]]; then
     local user_host='%{$reset_color%}'
     local user_symbol='$'
 elif [[ $UID -eq 0 ]]; then
+    # When logged as root user
     local user_color='red'
     local user_host=' %{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
     local user_symbol='#'

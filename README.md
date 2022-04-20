@@ -16,12 +16,9 @@ And if there are no changes to commit, but some local commits needs to be pushed
 
 ![screenshot commited](resources/screenshot_commited.png)
 
-## 📥️ Installation
+## 📥️ Quick installation
 
-<details><summary>You will need to have ZSH and Oh My ZSH! installed.</summary>
-
-Install the ZSH shell:
-
+<details><summary>You will need to have the <code>ZSH</code> shell installed.</summary>
 ```bash
 # On Debian-based Linux
 sudo apt install -y zsh
@@ -31,27 +28,37 @@ sudo dnf install -y zsh
 brew install zsh
 ```
 
-Install [Oh My ZSH!](https://ohmyz.sh)
+</details>
+
+Run the script to install the theme:
+
+```bash
+sh -c "$(curl -fsSL https://raw.github.com/vemonet/biratime/main/install.sh)"
+```
+
+## 🕵️ Detailed installation
+
+1. **Install [Oh My ZSH!](https://ohmyz.sh)**
 
 ```bash
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-</details>
 
-1. **Download the theme**:
+2. **Download the theme**:
 
 ```bash
 curl -fsSL -o ~/.oh-my-zsh/custom/themes/biratime.zsh-theme https://raw.github.com/vemonet/biratime/main/biratime.zsh-theme
 ```
 
-2. **Enable the theme** by setting `ZSH_THEME="biratime"` in your `~/.zshrc` config file:
+3. **Enable the theme** and `virtualenv` plugin by editing your `~/.zshrc` config file:
 
 ```bash
 sed -i 's/^ZSH_THEME=".*"$/ZSH_THEME="biratime"/g' ~/.zshrc
+sed -i 's/^plugins=(/plugins=(virtualenv /g' ~/.zshrc
 ```
 
-3. **Enable the [solarized colors scheme](https://ethanschoonover.com/solarized)** for your terminal
+4. **Enable the [solarized colors scheme](https://ethanschoonover.com/solarized)** for your terminal
 
 If you use Linux with the Gnome terminal:
 
@@ -63,10 +70,29 @@ cd gnome-terminal-colors-solarized
 
 If you use the Microsoft Terminal, you can enable solarized colors for the WSL terminal in the Settings window.
 
-4. Use the **ZSH shell by default**:
+5. Use the **ZSH shell by default**:
 
 ```bash
 sudo chsh --shell=/usr/bin/zsh $USER
+```
+
+6. Hide the default **conda environment** displayed to only show it with the ZSH theme:
+
+```bash
+echo "\`conda config --set changeps1 false\`" >> ~/.oh-my-zsh/plugins/virtualenv/virtualenv.plugin.zsh
+```
+
+## 🐳 Install in Docker
+
+You can easily install this theme in a `Dockerfile`
+
+```dockerfile
+RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+RUN curl -fsSL -o ~/.oh-my-zsh/custom/themes/biratime.zsh-theme https://raw.github.com/vemonet/biratime/main/biratime.zsh-theme
+RUN sed -i 's/^ZSH_THEME=".*"$/ZSH_THEME="biratime"/g' ~/.zshrc
+RUN echo "\`conda config --set changeps1 false\`" >> ~/.oh-my-zsh/plugins/virtualenv/virtualenv.plugin.zsh
+RUN echo 'setopt NO_HUP' >> ~/.zshrc
+ENV SHELL=/bin/zsh
 ```
 
 ## 🕊️ Contribute

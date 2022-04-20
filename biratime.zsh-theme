@@ -3,10 +3,17 @@
 # Display the latest error status in the right prompt:
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
+function conda_info {
+    if [[ -n "$CONDA_DEFAULT_ENV" ]]; then
+        echo "%{$fg[green]%} <${CONDA_DEFAULT_ENV}>%{$reset_color%}"
+    fi
+}
+local conda='$(conda_info)'
+
 # If user 1000 use blue and dont display user@hostname infos
 # If root or other users use red
 if [[ $UID -eq 1000 ]]; then
-    # Usually your personal laptop where you are the main user
+    # Use blue for main user, usually your personal laptop
     local user_color='blue'
     local user_host='%{$reset_color%}'
     local user_symbol='$'
@@ -16,7 +23,7 @@ elif [[ $UID -eq 0 ]]; then
     local user_host=' %{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
     local user_symbol='#'
 else
-    # Usually for servers where you are not the main user
+    # Use red for servers where you are not the main user
     local user_color='red'
     local user_host=' %{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
     local user_symbol='$'
@@ -35,7 +42,7 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 # If git branch clean
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✔"
-# If this branch is diiirrrty! Dirty branch!
+# If this branch is dirty
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg_bold[red]%}✗"
 # A little cloud when remote is behind
 ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE=" %{$fg[blue]%}☁"
@@ -49,6 +56,14 @@ ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX="› %{$reset_color%}"
 ZSH_THEME_VIRTUALENV_PREFIX=$ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX
 ZSH_THEME_VIRTUALENV_SUFFIX=$ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX
 
-PROMPT="╭─$fg[$user_color]%T${user_host}${current_dir}${rvm_ruby}${git_branch}${venv_prompt}
+PROMPT="╭─$fg[$user_color]%T${user_host}${current_dir}${rvm_ruby}${git_branch}${venv_prompt}${conda}
 ╰─%B${user_symbol}%b "
 RPROMPT="%B${return_code}%b"
+
+
+# function venv_info {
+#     if [[ -n "$VIRTUAL_ENV" ]]; then
+#         echo "%{$fg[green]%}‹${VIRTUAL_ENV:t}›%{$reset_color%}"
+#     fi
+# }
+# local venv='$(venv_info)'

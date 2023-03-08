@@ -45,7 +45,9 @@ ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✔"
 # If this branch is dirty
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg_bold[red]%}✗"
 # A little cloud when remote is behind
-ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE=" %{$fg[blue]%}☁"
+ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE=" %{$fg[blue]%}⛅️"
+# ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE=" %{$fg[blue]%}☁️"
+# ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE=" %{$fg[blue]%}☁"
 
 ZSH_THEME_RUBY_PROMPT_PREFIX="%{$fg[red]%}‹"
 ZSH_THEME_RUBY_PROMPT_SUFFIX="› %{$reset_color%}"

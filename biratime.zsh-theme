@@ -60,7 +60,19 @@ ZSH_THEME_VIRTUALENV_SUFFIX=$ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX
 
 PROMPT="╭─$fg[$user_color]%T${user_host}${current_dir}${rvm_ruby}${git_branch}${venv_prompt}${conda}
 ╰─%B${user_symbol}%b "
-RPROMPT="%B${return_code}%b"
+
+# Add timer in the right prompt
+function preexec() {
+  timer=${timer:-$SECONDS}
+}
+function precmd() {
+  if [ $timer ]; then
+    timer_show=$(($SECONDS - $timer))
+    export RPROMPT="%F{cyan}${timer_show}s %{$reset_color%}"
+    unset timer
+  fi
+}
+# RPROMPT="%B${return_code}%b"
 
 
 # function venv_info {

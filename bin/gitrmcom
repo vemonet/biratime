@@ -1,0 +1,3 @@
+#!/bin/bash
+# Locally Hard remove the last commit
+git reset HEAD^ --hard
